@@ -20,15 +20,15 @@ public class Logic {
 
         //converts the val to its base unit.
 
-        if (initUnit.contains("k")){
+        if (initUnit.startsWith("k")){
             convertedVal = val * KILO;
-        } else if (initUnit.contains("h")){
+        } else if (initUnit.startsWith("h")){
             convertedVal = val * HECTO;
-        } else if (initUnit.contains("da")){
+        } else if (initUnit.startsWith("da")){
             convertedVal = val * DEKA;
-        } else if (initUnit.contains("c")){
+        } else if (initUnit.startsWith("c")){
             convertedVal = val * CENTI;
-        } else if (initUnit.contains("m")){
+        } else if (initUnit.startsWith("m")){
             convertedVal = val * MILLI;
         }
 
@@ -40,20 +40,30 @@ public class Logic {
         double finalVal = 0;
 
 
-        if (finalUnit.contains("k")){
+        if (finalUnit.startsWith("k")){
             finalVal = val / KILO;
-        } else if (finalUnit.contains("h")){
+        } else if (finalUnit.startsWith("h")){
             finalVal = val / HECTO;
-        } else if (finalUnit.contains("da")){
+        } else if (finalUnit.startsWith("da")){
             finalVal = val / DEKA;
-        } else if (finalUnit.contains("c")){
+        } else if (finalUnit.startsWith("c")){
             finalVal = val / CENTI;
-        } else if (finalUnit.contains("m")){
+        } else if (finalUnit.startsWith("m")){
             finalVal = val / MILLI;
         }
 
         System.out.println(finalVal + " " + finalUnit);
         //so far works for upper conversions, but not for lower conversions
+    }
+
+    private void revisedConverter(){
+        double val = 40;
+        String init = "kg";
+        String toConverted = "mg";
+
+        if (init.startsWith("k")){
+            val = (val / KILO) * (MILLI);
+        }
     }
 }
 
